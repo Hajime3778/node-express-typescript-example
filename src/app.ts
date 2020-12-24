@@ -5,7 +5,6 @@ import { UserUsecase } from './application/usecase/UserUsecase';
 import { UserRepository } from './infrastructure/database/mysql/repositories/UserRepository';
 import { createMySqlConnection } from './infrastructure/database/mysql/mysql';
 
-
 const connection = createMySqlConnection(config);
 const server = new Server(config);
 const express = server.express;
