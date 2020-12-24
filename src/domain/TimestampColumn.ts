@@ -1,4 +1,4 @@
-export type DomainModel = {
+export type TimestampColumn = {
   createdAt: Date | null;
   updatedAt: Date | null;
 }

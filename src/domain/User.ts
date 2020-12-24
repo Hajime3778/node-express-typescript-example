@@ -1,8 +1,10 @@
-import { DomainModel } from './DomainModel';
+import { TimestampColumn } from './TimestampColumn';
 
 export type User = {
   id: string;
   name: string;
   email: string;
   description: string;
-} & DomainModel;
+};
+
+export type UserTable = User & TimestampColumn;

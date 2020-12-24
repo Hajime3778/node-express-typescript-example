@@ -1,5 +1,5 @@
 import mysql, { Connection } from 'mysql';
-import { Config } from '../config/Config';
+import { Config } from '../../config/Config';
 
 export const createMySqlConnection = (config: Config): Connection => {  
   const connection = mysql.createConnection({
