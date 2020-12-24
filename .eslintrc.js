@@ -20,6 +20,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   rules: {
+    '@typescript-eslint/no-explicit-any': 0,
     'quotes': [2, 'single', 'avoid-escape'],
     'semi': [2, 'always'],
   },

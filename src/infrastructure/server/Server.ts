@@ -13,6 +13,7 @@ export class Server {
     this.express = express();
 
     this.express.disable('x-powered-by');
+    this.express.use(bodyParser.json());
     this.express.use((req: Request, res: Response, next:NextFunction ) => {
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -27,7 +28,6 @@ export class Server {
         next();
       }
     });
-    this.express.use(bodyParser.json());
   }
 
   run(): void {
