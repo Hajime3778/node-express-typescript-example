@@ -12,7 +12,7 @@ export const createMySqlConnection = (config: Config): Connection => {
   
   connection.connect((err) => {
     if (err) throw err;
-    console.log('connected');
+    console.log('connected mysql');
   });
 
   return connection;
