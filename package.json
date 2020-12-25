@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
+    "test": "jest --forceExit --coverage --verbose",
     "build": "tsc -p . ",
     "debug": "tsc -p . --sourceMap --outDir dist"
   },
@@ -23,6 +24,7 @@
     "@types/jest": "^26.0.19",
     "@types/mysql": "^2.15.16",
     "@types/node": "^14.14.14",
+    "@types/supertest": "^2.0.10",
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
@@ -30,6 +32,8 @@
     "eslint-plugin-jest": "^24.1.3",
     "jest": "^26.6.3",
     "nodemon": "^2.0.6",
+    "supertest": "^6.0.1",
+    "ts-jest": "^26.4.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }
