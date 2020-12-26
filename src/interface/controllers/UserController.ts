@@ -38,6 +38,7 @@ export class UserController {
   }
 
   private async create(req: Request, res: Response) {
+    console.log(req.body);
     const results = await this.userUsecase.create(req.body)
       .catch((err) => {
         console.log(err);

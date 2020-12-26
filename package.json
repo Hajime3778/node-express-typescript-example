@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
-    "test": "jest --forceExit --coverage --verbose",
+    "test": "jest --silent=false --forceExit --coverage --verbose false",
     "build": "tsc -p . ",
     "debug": "tsc -p . --sourceMap --outDir dist"
   },

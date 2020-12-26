@@ -4,6 +4,7 @@ import { UserController } from '../src/interface/controllers/UserController';
 import { User, UserTable } from '../src/domain/User';
   
 import request from 'supertest';
+import bodyParser from 'body-parser';
 
 const mockUsers: UserTable[] = [
   {
@@ -47,13 +48,62 @@ function createMockUsecase(): IUserUsecase {
  return mockUsecase;
 }
 
-describe('UserUsecase 正常系テスト', () => {
-  it('should return 200 OK', () => {
+describe('UserRepository 正常系テスト', () => {
+  it('getAll', () => {
     const app: Application = express();
     const mockUsecase = createMockUsecase();
     const controller = new UserController(mockUsecase);
     app.use('/api/', controller.router);
     return request(app).get('/api/users')
             .expect(200);
+  });
+  it('getById', () => {
+    const app: Application = express();
+    const mockUsecase = createMockUsecase();
+    const controller = new UserController(mockUsecase);
+    app.use('/api/', controller.router);
+    return request(app).get('/api/users/1')
+            .expect(200);
+  });
+  it('create', async () => {
+    const app: Application = express();
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: true}));
+    const mockUsecase = createMockUsecase();
+    const controller = new UserController(mockUsecase);
+    const user: User = {
+      id: '1',
+      name: 'test',
+      email: 'test@example.com',
+      description: 'test',
+    };
+
+    app.use('/api/', controller.router);
+    return request(app).post('/api/users').send(user).set('Accept', 'application/json')
+            .expect(201);
+  });
+  it('update', () => {
+    const app: Application = express();
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: true}));
+    const mockUsecase = createMockUsecase();
+    const controller = new UserController(mockUsecase);
+    const user: User = {
+      id: '1',
+      name: 'test',
+      email: 'test@example.com',
+      description: 'test',
+    };
+    app.use('/api/', controller.router);
+    return request(app).put('/api/users').send(user).set('Accept', 'application/json')
+            .expect(200);
+  });
+  it('delete', () => {
+    const app: Application = express();
+    const mockUsecase = createMockUsecase();
+    const controller = new UserController(mockUsecase);
+    app.use('/api/', controller.router);
+    return request(app).delete('/api/users/1')
+            .expect(204);
     });
 });
