@@ -30,7 +30,7 @@ npm run dev
 
 5. Launching confirmation
 Make a request to the following, and if JSON is returned, OK.    
-http://localhost:3000/api/users
+http://localhost:4000/api/users
 
 ## How to exit
 
